@@ -39,9 +39,9 @@
 | 9/16-9/20   | Monday     | mtcars data analysis & visualization         |            |
 | 9/16-9/20   | Wednesday  | SDG data analysis & visualization            |            |
 | 9/16-9/20   | Friday     | SDG data analysis & visualization            |            |
-| 9/23-9/27   | Monday     | Personal Websites in R                       |            |
-| 9/23-9/27   | Wednesday  | Personal Websites in R                       |            |
-| 9/23-9/27   | Friday     | Tidycensus & Github Colaboration             |            |
+| 9/23-9/27   | Monday     | [Personal Websites in R ](https://ucsb-meds.github.io/creating-quarto-websites/)                      |            |
+| 9/23-9/27   | Wednesday  | [Personal Websites in R  ](https://ucsb-meds.github.io/creating-quarto-websites/)                     |            |
+| 9/23-9/27   | Friday     | [Tidycensus & Github Colaboration](https://ucsb-meds.github.io/creating-quarto-websites/)             |            |
 | 9/30-10/4   | Monday     | Tidycensus & Github Colaboration             |            |
 | 9/30-10/4   | Wednesday  | Tidycensus & Github Colaboration             |            |
 | 9/30-10/4   | Friday     | GitHub, Forking a Repository                 |            |
