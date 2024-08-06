@@ -22,17 +22,13 @@
 
 ## Course Outline
 
-| Week   | Module | Assignment|
-| -------- | ------- | ------- |
-| 1 | Course Introduction  |  |        
-| 1 | [Installation Guide](https://nsf-all-spice-alliance.github.io/SDG-Analytics-in-R/rmarkdowns/installation_guide.html)  |  Midnight on September 13th | 
-| 2    | [Intro to R](https://nsf-all-spice-alliance.github.io/SDG-Analytics-in-R/rmarkdowns/intro_to_R.html)  | Midnight on September 20th |
-| 2    | [Basic Viz](https://nsf-all-spice-alliance.github.io/SDG-Analytics-in-R/rmarkdowns/basic_viz.html)  | Midnight on September 20th |
-| 3    | [Advanced Viz](https://nsf-all-spice-alliance.github.io/SDG-Analytics-in-R/rmarkdowns/advanced_viz.html)  | Midnight on September 27th |
-| 3    | [Stats](https://nsf-all-spice-alliance.github.io/SDG-Analytics-in-R/rmarkdowns/stats.html)  | Midnight on September 27th |
-| 4    | [Machine Learning](https://nsf-all-spice-alliance.github.io/SDG-Analytics-in-R/rmarkdowns/basic_viz.html)  | Midnight on October 4th |
-| 5 & 6 | [Final Project](https://nsf-all-spice-alliance.github.io/SDG-Analytics-in-R/rmarkdowns/final_project_guide.html)  | Midnight on October 18th |
-
-
+| Week   | Day | Module | Assignment|
+| -------- | ------- | ------- | ------- |
+| 1 |  Monday | Course Introduction |  |          
+| 1 |  Wednesday | Google Sheets |  |  
+| 1 |  Friday | *No Lecture* [Installation Guide](https://nsf-all-spice-alliance.github.io/SDG-Analytics-in-R/rmarkdowns/installation_guide.html) |  | 
+| 2 |  Monday | *No Lecture* [Installation Guide ](https://nsf-all-spice-alliance.github.io/SDG-Analytics-in-R/rmarkdowns/installation_guide.html)|  |  
+| 2 |  Wednesday | Guest Lecture: Victoria DelaCruz |  | 
+| 2 |  Friday | R Studio Demo |  | 
 
   
