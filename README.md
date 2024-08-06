@@ -41,11 +41,11 @@
 | 9/16-9/20   | Friday     | SDG data analysis & visualization            |            |
 | 9/23-9/27   | Monday     | [Personal Websites in R ](https://ucsb-meds.github.io/creating-quarto-websites/)                      |            |
 | 9/23-9/27   | Wednesday  | [Personal Websites in R  ](https://ucsb-meds.github.io/creating-quarto-websites/)                     |            |
-| 9/23-9/27   | Friday     | [Tidycensus & Github Colaboration](https://ucsb-meds.github.io/creating-quarto-websites/)             |            |
+| 9/23-9/27   | Friday     | [Personal Websites in R  ](https://ucsb-meds.github.io/creating-quarto-websites/)                     |            |
 | 9/30-10/4   | Monday     | Tidycensus & Github Colaboration             |            |
 | 9/30-10/4   | Wednesday  | Tidycensus & Github Colaboration             |            |
-| 9/30-10/4   | Friday     | GitHub, Forking a Repository                 |            |
-| 10/7-10/11  | Monday     | Flexdashboard                                |            |
+| 9/30-10/4   | Friday     | Tidycensus & Github Colaboration             |            |
+| 10/7-10/11  | Monday     | Github, Forking a Repository                 |            |
 | 10/7-10/11  | Wednesday  | Flexdashboard                                |            |
 | 10/7-10/11  | Friday     | Flexdashboard                                |            |
 | 10/14-10/18 | Monday     | HOLIDAY                                      |            |
@@ -61,12 +61,13 @@
 | 11/4-11/8   | Wednesday  | Machine learning in R                        |            |
 | 11/4-11/8   | Friday     | Machine learning in R                        |            |
 | 11/11-11/15 | Monday     | HOLIDAY                                      |            |
-| 11/11-11/15 | Wednesday  | Personal websites                            |            |
-| 11/11-11/15 | Friday     | Personal websites                            |            |
+| 11/11-11/15 | Wednesday  | Missing Data with Naniar                     |            |
+| 11/11-11/15 | Friday     | What we Covered & Didnt Cover                |            |
 | 11/18-11/22 | Monday     | Final Projects                               |            |
 | 11/18-11/22 | Wednesday  | Final Projects                               |            |
 | 11/18-11/22 | Friday     | Final Projects                               |            |
-| 11/25-11/29 | Monday     | Final Presentations                          |            |
-| 11/25-11/29 | Wednesday  | Final Presentations                          |            |
+| 11/25-11/29 | Monday     | Final Projects                               |            |
+| 11/25-11/29 | Wednesday  | Final Projects                               |            |
 | 11/25-11/29 | Friday     | HOLIDAY                                      |            |
+| 12/2-12/6 | Thursday 11:00-1:00     | Final Presentations!              |            |
   
