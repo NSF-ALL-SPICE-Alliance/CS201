@@ -7,7 +7,7 @@ editor: visual
 
 #### Loading Libraries
 
-```{r}
+```{r, message=FALSE}
 library(tidyverse)
 library(here)
 library(palmerpenguins)
@@ -17,7 +17,7 @@ library(plotly)
 
 #### Reading in Data w/ [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/articles/intro.html)
 
-[![](images/clipboard-1031246121.png){width="79"}](https://allisonhorst.github.io/palmerpenguins/articles/intro.html)
+[![](images/clipboard-1031246121.png){width="78" height="89"}](https://allisonhorst.github.io/palmerpenguins/articles/intro.html)
 
 There are multiple options to read data into R
 
@@ -28,33 +28,46 @@ There are multiple options to read data into R
 
 ##### Option 1
 
-```{r}
+```{r, message=FALSE}
 penguins_data_from_csv <- read_csv(here("data/penguins_lter.csv"))
 ```
 
 ##### Option 2
 
-```{r}
+```{r, message=FALSE}
 penguins_data_from_package <- palmerpenguins::penguins
 ```
 
-```{r}
+```{r, message=FALSE}
 raw_penguins_data_from_package <- palmerpenguins::penguins_raw
 ```
 
 ##### Option 3
 
-```{r}
+```{r, message=FALSE}
 uri_adelie <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.219.3&entityid=002f3893385f710df69eeebe893144ff"
-```
 
-```{r}
-penguins_data_from_url <- read_csv(uri_adelie)
+adelie_penguins_data_from_url <- read_csv(uri_adelie)
 ```
 
 Please note that all of these methods of reading data in to R are *reproducible* meaning that this script should work for anyone using the appropriate steps with Github
 
-#### Exercise 1 {style="color: skyblue"}
+#### Exercise 1 {style="color: #B8860B;"}
+
+-   Notice that the data we read in with the link is only for adelie penguins (adelie species). Can you use this link below to read in the data for the gentoo penguins?
+
+    -   In the empty code chunk below, assign the link the name *uri_gentoo* and assign the dataframe the name *gentoo_penguins_data_from_url*
+
+    -   Run the code chunk and see if you have a dataframe with the name *gentoo_penguins_data_from_url* in your environment
+
+        ```         
+        https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.220.3&entityid=e03b43c924f226486f2f0ab6709d2381
+        ```
+
+```{r}
+
+
+```
 
 #### A Little Data Cleaning
 
@@ -72,7 +85,7 @@ Let's focus on the dataframe penguins_data_from_csv for learning purposes
 
             -   CulmenLengthMm
 
-Lets start by cleaning one column name manually, so you can appreciate the janitor packages efficiency
+Lets start by cleaning one column name manually, so you can appreciate the janitor packages' efficiency
 
 First, with Base R
 
@@ -96,8 +109,6 @@ penguins_data_from_csv <- penguins_data_from_csv %>%
 
 Awesome, now all of our column names are clean and our dataframe is ready for analysis
 
-#### Exercise 2 {style="color: skyblue"}
-
 #### Exploratory Analysis
 
 The skim() function from the skimr package gives us a cool overview of the data with one line of code
@@ -106,13 +117,19 @@ The skim() function from the skimr package gives us a cool overview of the data 
 skimr::skim(penguins_data_from_csv)
 ```
 
-#### Exercise 3 {style="color: skyblue"}
+#### Exercise 2 {style="color: #B8860B;"}
 
 What other packages/functions do a similar thing?
 
+-   Try a good ol google search "R package to get in depth description of dataframe"
+
+    -   How about a Chat GPT search?
+
+-   Type you answer(s) in bullet points below
+
 #### Data Visualization
 
-ggplot is the most common package used for data visualization in R!
+Wohoo!! ggplot is the most common package used for data visualization in R!
 
 Let's start with the most basic plot we can make
 
@@ -205,6 +222,24 @@ ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = spec
   
 ```
 
+#### Exercise 3 {style="color: #B8860B;"}
+
+-   Part 1
+
+    -   In the code chunk below create a histogram with culmen_depth_mm on the x axis and color by species using the dataframe *penguins_data_from_csv*. Give the plot the theme: theme_bw(). Assign a color palette with *scale_fill_viridis_d()*. Give the plot a title, subtitile and custom x and y axis titles.
+
+```{r}
+
+```
+
+-   Part 2
+
+    -   In the code chunk below create a scatterplot with culmen_depth_mm on the x axis, body_mass_g on the y axis, and color by species using the dataframe *penguins_data_from_csv*. Give the plot the theme: theme_bw(). Assign a color palette with *scale_fill_viridis_d(option = "inferno")*. Give the plot a title, subtitile and custom x and y axis titles.
+
+```{r}
+
+```
+
 #### Interactive Data Visualization
 
 ```{r}
@@ -223,3 +258,5 @@ ggplotly(scatter_plot)
 ```
 
 #### Data manipulation
+
+#### Joining Data
