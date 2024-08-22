@@ -67,6 +67,7 @@ Please note that all of these methods of reading data in to R are *reproducible*
 ```{r}
 
 
+
 ```
 
 #### A Little Data Cleaning
@@ -204,14 +205,14 @@ ggplot(data = penguins_data_from_csv, aes(x = species, y = flipper_length_mm, fi
 Awesome! Let's take a look at flipper length and it's relationship to body mass
 
 ```{r}
-ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+ggplot(data = penguins_data_from_csv, aes(x = flipper_length_mm, y = body_mass_g)) +
   geom_point()
 ```
 
 Cool! Let's add species and island to this plot
 
 ```{r}
-ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species, shape = island)) +
+ggplot(data = penguins_data_from_csv, aes(x = flipper_length_mm, y = body_mass_g, color = species, shape = island)) +
   geom_point() +
   theme_bw() +
   scale_color_viridis_d() +
@@ -243,7 +244,7 @@ ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = spec
 #### Interactive Data Visualization
 
 ```{r}
-scatter_plot <- ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species, shape = island)) +
+scatter_plot <- ggplot(data = penguins_data_from_csv, aes(x = flipper_length_mm, y = body_mass_g, color = species, shape = island)) +
   geom_point() +
   theme_bw() +
   scale_color_viridis_d() +
@@ -259,4 +260,80 @@ ggplotly(scatter_plot)
 
 #### Data manipulation
 
+Our first plots did not call for us to manipulate the data at all. How about if we wanted to make a bar graph of the average body mass by species?
+
+-   Let's create a new dataframe called *average_body_masses* that has the average body mass for each penguin species. We'll do this by using the *group_by()* and *summarise()* functions.
+
+    ```{r}
+    average_species_body_mass <- penguins_data_from_csv %>% 
+      group_by(species) %>% 
+      summarise(average_body_mass = mean(body_mass_g, na.rm = TRUE))
+    ```
+
+-   Sweet! Now let's plot the results
+
+    ```{r}
+    ggplot(data = average_species_body_mass, aes(x = species, y = average_body_mass)) +
+      geom_bar(stat = "identity")
+    ```
+
+-   Cool, but let's clean the graph up
+
+    ```{r}
+    ggplot(data = average_species_body_mass, aes(x = species, y = average_body_mass, fill = species)) +
+      geom_bar(stat = "identity") +
+      theme_bw() +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+      scale_fill_viridis_d()
+      
+    ```
+
+-   It might be nice to have the bars going horizontally. We can do this with cooed_flip()
+
+    -   Let's also get rid of the legend since the species is already written on the axis and add appropriate titles
+
+    ```{r}
+    ggplot(data = average_species_body_mass, aes(x = species, y = average_body_mass, fill = species)) +
+      geom_bar(stat = "identity") +
+      theme_bw() +
+      scale_fill_viridis_d() +
+      coord_flip() +
+      theme(legend.position = "none") +
+      labs(title = "Palmer Penguins, Average Body Mass by Species",
+           subtitle = "3 penguin species observed on three islands in the Palmer Archipelago, Antarctica",
+           x = "average body mass (g)",
+           y = "species")
+      
+    ```
+
+#### Exercise 4 {style="color: #B8860B;"}
+
+-   In the code chunk below create a new dataframe called *average_species_flipper_length* that has the average flipper length for each species
+
+```{r}
+
+
+```
+
+-   In the code chunk below, plot *average_species_flipper_length* using *ggplot()* and geom_bar(). Customize the graph with colors, a theme, and labels
+
+```{r}
+
+
+```
+
 #### Joining Data
+
+Let's say the only way to get the penguins data was via the uri. At the top of this quarto document, we read in two datasets via uri, the *adelie_penguins_data_from_url and gentoo_penguins_data_from_url.* How can we join them together to analyze data for both species?
+
+-   We can use the function full_join()
+
+```{r}
+# gentoo_adelie_penguins_data_joined <- full_join(gentoo_penguins_data_from_url, adelie_penguins_data_from_url)
+```
+
+notes
+
+-   mutate to add column, maybe bill depth \* width
+
+-   facet_wrap on sex in scatterplot with shapes
