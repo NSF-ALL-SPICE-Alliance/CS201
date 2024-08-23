@@ -194,8 +194,8 @@ ggplot(data = penguins_data_from_csv, aes(x = species, y = flipper_length_mm, fi
   scale_fill_viridis_d() +
   labs(title = "Palmer Penguins, Distribution of Flipper Length",
        subtitle = "3 penguin species observed on three islands in the Palmer Archipelago, Antarctica",
-       x = "flipper length (mm)",
-       y = "number of penguins") + 
+       x = "",
+       y = "flipper length (mm)") + 
   theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), legend.position = "none") +
   coord_flip()
   
@@ -256,6 +256,67 @@ scatter_plot <- ggplot(data = penguins_data_from_csv, aes(x = flipper_length_mm,
 
 ```{r}
 ggplotly(scatter_plot)
+```
+
+Aweome! Let's add one more variable to the plot, the sex of the penguin. Since we have already used our x axis, y axis, color, and shape for other variables, our best option is to use facet_wrap() to slit the plot into two plots based on sex
+
+```{r}
+ggplot(data = penguins_data_from_csv, aes(x = flipper_length_mm, y = body_mass_g, color = species, shape = island)) +
+  geom_point() +
+  theme_bw() +
+  scale_color_viridis_d() +
+  facet_wrap(~sex) +
+   labs(title = "Palmer Penguins, Flipper Length & Body Mass",
+       subtitle = "3 penguin species observed on three islands in the Palmer Archipelago, Antarctica",
+       x = "flipper length (mm)",
+       y = "body mass (g)")
+
+```
+
+Interesting, it seems there are actually 4 unique sexes in the dataframe (male, female, ".", and NA).
+
+We could also have seen this with the unique() function
+
+```{r}
+unique(penguins_data_from_csv$sex)
+```
+
+-   If we wanted to know the number of penguins in each category for sex, we can use table(), however this does not include NA
+
+    ```{r}
+    table(penguins_data_from_csv$sex)
+    ```
+
+-   We can use the sum(is.na() function to count the number of penguins with NA as the sex
+
+    -   This was also included in the skim() function in the beginning of this document
+
+```{r}
+sum(is.na(penguins_data_from_csv$sex))
+```
+
+Let;s filter for observations where sex is wither male or female and drop observations with na in the sex column
+
+```{r}
+penguins_male_female <- penguins_data_from_csv %>% 
+  filter(sex %in% c("MALE", "FEMALE")) %>% 
+  drop_na(sex)
+```
+
+-   Notice in our environment pane that our \# of observations went from 344 in the dataframe penguins_data_from_csv to 333 observation in penguins_clean
+
+Let's let's make the same faceted scatter plot from the new dataframe
+
+```{r}
+ggplot(data = penguins_male_female, aes(x = flipper_length_mm, y = body_mass_g, color = species, shape = island)) +
+  geom_point() +
+  theme_bw() +
+  scale_color_viridis_d() +
+  facet_wrap(~sex) +
+   labs(title = "Palmer Penguins, Flipper Length & Body Mass",
+       subtitle = "3 penguin species observed on three islands in the Palmer Archipelago, Antarctica",
+       x = "flipper length (mm)",
+       y = "body mass (g)")
 ```
 
 #### Data manipulation
@@ -332,8 +393,10 @@ Let's say the only way to get the penguins data was via the uri. At the top of t
 # gentoo_adelie_penguins_data_joined <- full_join(gentoo_penguins_data_from_url, adelie_penguins_data_from_url)
 ```
 
-notes
+#### Final Exercises {style="color: #B8860B;"}
 
--   mutate to add column, maybe bill depth \* width
-
--   facet_wrap on sex in scatterplot with shapes
+1.  Create a boxplot of body mass by species & make the plot interactive
+    1.  Hint: geom_boxplot(), ggplotly()
+2.  How many penguins live on Torgersen Island?
+3.  Create a dataframe that has the average culmen depth for each species
+    1.  Make a bar plot of the new dataframe with species on the x axis and average culmen depth on the y axis
