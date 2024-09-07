@@ -13,6 +13,7 @@ library(here)
 library(palmerpenguins)
 library(janitor)
 library(plotly)
+library(DataExplorer) 
 ```
 
 #### Reading in Data w/ [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/articles/intro.html)
@@ -128,6 +129,14 @@ What other packages/functions do a similar thing?
 
 -   Type you answer(s) in bullet points below
 
+```{r}
+introduce(penguins_data_from_csv)
+```
+
+```{r}
+plot_intro(penguins_data_from_csv)
+```
+
 #### Data Visualization
 
 Wohoo!! ggplot is the most common package used for data visualization in R!
@@ -230,7 +239,10 @@ ggplot(data = penguins_data_from_csv, aes(x = flipper_length_mm, y = body_mass_g
     -   In the code chunk below create a histogram with culmen_depth_mm on the x axis and color by species using the dataframe *penguins_data_from_csv*. Give the plot the theme: theme_bw(). Assign a color palette with *scale_fill_viridis_d()*. Give the plot a title, subtitile and custom x and y axis titles.
 
 ```{r}
-
+ggplot(data = penguins_data_from_csv, aes(x = culmen_depth_mm, fill = species)) +
+  geom_boxplot() +
+  scale_color_viridis_d()
+  
 ```
 
 -   Part 2
@@ -238,7 +250,14 @@ ggplot(data = penguins_data_from_csv, aes(x = flipper_length_mm, y = body_mass_g
     -   In the code chunk below create a scatterplot with culmen_depth_mm on the x axis, body_mass_g on the y axis, and color by species using the dataframe *penguins_data_from_csv*. Give the plot the theme: theme_bw(). Assign a color palette with *scale_fill_viridis_d(option = "inferno")*. Give the plot a title, subtitile and custom x and y axis titles.
 
 ```{r}
-
+ggplot(data = penguins_data_from_csv, aes(x = culmen_depth_mm, y = body_mass_g, fill = species)) +
+  geom_boxplot() +
+  scale_color_viridis_d()
+   theme_bw() +
+     labs(title = "Palmer Penguins, Flipper Length & Body Mass",
+       subtitle = "3 penguin species observed on three islands in the Palmer Archipelago, Antarctica",
+       x = "culmen depth (mm)",
+       y = "body mass (g)")
 ```
 
 #### Interactive Data Visualization
