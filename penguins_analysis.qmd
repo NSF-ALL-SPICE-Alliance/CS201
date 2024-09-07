@@ -13,6 +13,7 @@ library(here)
 library(palmerpenguins)
 library(janitor)
 library(plotly)
+library(DataExplorer)
 ```
 
 #### Reading in Data w/ [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/articles/intro.html)
@@ -70,7 +71,7 @@ uri_gentoo <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lte
 gentoo_penguins_data_from_uri <- read_csv(uri_gentoo)
 ```
 
-#### A Little Data Cleaning 
+#### A Little Data Cleaning
 
 Let's focus on the dataframe penguins_data_from_csv for learning purposes
 
@@ -127,6 +128,14 @@ What other packages/functions do a similar thing?
     -   How about a Chat GPT search?
 
 -   Type you answer(s) in bullet points below
+
+```{r}
+introduce(penguins_data_from_csv)
+```
+
+```{r}
+plot_intro(penguins_data_from_csv)
+```
 
 #### Data Visualization
 
