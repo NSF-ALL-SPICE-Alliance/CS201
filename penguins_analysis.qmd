@@ -239,7 +239,14 @@ ggplot(data = penguins_data_from_csv, aes(x = flipper_length_mm, y = body_mass_g
     -   In the code chunk below create a histogram with culmen_depth_mm on the x axis and color by species using the dataframe *penguins_data_from_csv*. Give the plot the theme: theme_bw(). Assign a color palette with *scale_fill_viridis_d()*. Give the plot a title, subtitile and custom x and y axis titles.
 
 ```{r}
-
+ggplot(data = penguins_data_from_csv, aes(x = culmen_depth_mm, fill = species)) +
+  geom_histogram() +
+  theme_bw() +
+  scale_fill_viridis_d() +
+  labs(title = "Palmer Penguins",
+       subtitle = "Distribution of Culmen Depth",
+       x = "Culmen Depth (mm)", 
+       y = "Number of Penguins")
 ```
 
 -   Part 2
@@ -247,7 +254,14 @@ ggplot(data = penguins_data_from_csv, aes(x = flipper_length_mm, y = body_mass_g
     -   In the code chunk below create a scatterplot with culmen_depth_mm on the x axis, body_mass_g on the y axis, and color by species using the dataframe *penguins_data_from_csv*. Give the plot the theme: theme_bw(). Assign a color palette with *scale_fill_viridis_d(option = "inferno")*. Give the plot a title, subtitile and custom x and y axis titles.
 
 ```{r}
-
+ggplot(data = penguins_data_from_csv, aes(x = culmen_depth_mm, y = body_mass_g, color = species)) +
+  geom_point() +
+  theme_bw() +
+  scale_color_viridis_d() +
+  labs(title = "Palmer Penguins",
+       subtitle = "Culmen Depth & Body Mass",
+       x = "Culmen Depth (mm)", 
+       y = "Body Mass (g)")
 ```
 
 #### Interactive Data Visualization
@@ -381,7 +395,9 @@ Our first plots did not call for us to manipulate the data at all. How about if 
 -   In the code chunk below create a new dataframe called *average_species_flipper_length* that has the average flipper length for each species
 
 ```{r}
-
+average_species_flipper_length <- penguins_data_from_csv %>% 
+  group_by(species) %>% 
+  summarise(average_flipper_length = mean(flipper_length_mm, na.rm = TRUE))
 
 ```
 
