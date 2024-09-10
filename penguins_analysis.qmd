@@ -281,7 +281,34 @@ scatter_plot <- ggplot(data = penguins_data_from_csv, aes(x = flipper_length_mm,
 ggplotly(scatter_plot)
 ```
 
-Aweome! Let's add one more variable to the plot, the sex of the penguin. Since we have already used our x axis, y axis, color, and shape for other variables, our best option is to use facet_wrap() to slit the plot into two plots based on sex
+Question from Class
+
+-   How can we edit the tooltip to replace body_mass_g with "body mass"
+
+```{r}
+scatter_plot <- ggplot(data = penguins_data_from_csv, 
+                       aes(x = flipper_length_mm, y = body_mass_g, color = species, shape = island, 
+                           text = paste(
+                             "Flipper Length (mm):", flipper_length_mm,
+                             "<br>Body Mass (g):", body_mass_g,
+                             "<br>Species:", species,
+                             "<br>Island:", island))) +
+  geom_point() +
+  theme_bw() +
+  scale_color_viridis_d() +
+  labs(title = "Palmer Penguins, Flipper Length & Body Mass",
+       subtitle = "3 penguin species observed on three islands in the Palmer Archipelago, Antarctica",
+       x = "flipper length (mm)",
+       y = "body mass (g)")
+
+# Convert the ggplot object to a plotly object with customized tooltip
+ggplotly(scatter_plot, tooltip = "text")
+
+
+
+```
+
+Awesome! Let's add one more variable to the plot, the sex of the penguin. Since we have already used our x axis, y axis, color, and shape for other variables, our best option is to use facet_wrap() to slit the plot into two plots based on sex
 
 ```{r}
 ggplot(data = penguins_data_from_csv, aes(x = flipper_length_mm, y = body_mass_g, color = species, shape = island)) +
