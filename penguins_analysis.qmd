@@ -240,8 +240,13 @@ ggplot(data = penguins_data_from_csv, aes(x = flipper_length_mm, y = body_mass_g
 
 ```{r}
 ggplot(data = penguins_data_from_csv, aes(x = culmen_depth_mm, fill = species)) +
-  geom_boxplot() +
-  scale_color_viridis_d()
+  geom_histogram() +
+  theme_bw() +
+  scale_fill_viridis_d()
+  labs(title = "Palmer Penguins",
+       subtitle = "Distribution of Culmen Depth",
+       x = "Culmen Depth (mm)",
+       y = "Body Mass")
   
 ```
 
@@ -250,11 +255,12 @@ ggplot(data = penguins_data_from_csv, aes(x = culmen_depth_mm, fill = species)) 
     -   In the code chunk below create a scatterplot with culmen_depth_mm on the x axis, body_mass_g on the y axis, and color by species using the dataframe *penguins_data_from_csv*. Give the plot the theme: theme_bw(). Assign a color palette with *scale_fill_viridis_d(option = "inferno")*. Give the plot a title, subtitile and custom x and y axis titles.
 
 ```{r}
-ggplot(data = penguins_data_from_csv, aes(x = culmen_depth_mm, y = body_mass_g, fill = species)) +
-  geom_boxplot() +
-  scale_color_viridis_d()
+ggplot(data = penguins_data_from_csv, aes(x = culmen_depth_mm, y = body_mass_g, color = species)) +
+  geom_point() +
    theme_bw() +
-     labs(title = "Palmer Penguins, Flipper Length & Body Mass",
+   scale_color_viridis_d() +
+     labs(
+       title = "Palmer Penguins, Flipper Length & Body Mass",
        subtitle = "3 penguin species observed on three islands in the Palmer Archipelago, Antarctica",
        x = "culmen depth (mm)",
        y = "body mass (g)")
@@ -391,14 +397,25 @@ Our first plots did not call for us to manipulate the data at all. How about if 
 -   In the code chunk below create a new dataframe called *average_species_flipper_length* that has the average flipper length for each species
 
 ```{r}
-
+average_species_flipper_length <- penguins_data_from_csv %>% 
+  group_by(species) %>% 
+  summarise(average_species_flipper_length = mean(flipper_length_mm, na.rm = TRUE))
 
 ```
 
 -   In the code chunk below, plot *average_species_flipper_length* using *ggplot()* and geom_bar(). Customize the graph with colors, a theme, and labels
 
 ```{r}
-
+ggplot(data = average_species_flipper_length, aes(x = species, y = average_species_flipper_length, fill = species)) +
+  geom_bar(stat = "identity") +
+  theme_bw() +
+  scale_fill_viridis_d() +
+  coord_flip() +
+  theme(legend.position = "none") +
+  labs(title = "Palmer Penguins, Average Flipper Length by Species",
+       subtitle = "3 penguin species observed on three islands in the Palmer Archipelago, Antarctica",
+       x = "average flipper length (mm))",
+       y = "species")
 
 ```
 
@@ -409,13 +426,33 @@ Let's say the only way to get the penguins data was via the uri. At the top of t
 -   We can use the function full_join()
 
 ```{r}
-# gentoo_adelie_penguins_data_joined <- full_join(gentoo_penguins_data_from_url, adelie_penguins_data_from_url)
+gentoo_adelie_penguins_data_joined <- full_join(gentoo_penguins_data_from_url, adelie_penguins_data_from_url)
 ```
 
 #### Final Exercises {style="color: #B8860B;"}
 
 1.  Create a boxplot of body mass by species & make the plot interactive
+
     1.  Hint: geom_boxplot(), ggplotly()
+
+        ```{r}
+        geom_boxplot()
+        ```
+
+        ```{r}
+        ggplotly()
+        ```
+
 2.  How many penguins live on Torgersen Island?
+
+    ```{r}
+
+    ```
+
 3.  Create a dataframe that has the average culmen depth for each species
+
     1.  Make a bar plot of the new dataframe with species on the x axis and average culmen depth on the y axis
+
+        ```{r}
+
+        ```
