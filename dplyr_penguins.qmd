@@ -1,0 +1,26 @@
+---
+title: "DPLYR penguins"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+library(here)
+```
+
+```{r}
+penguins <- read_csv(here("data/penguins_lter.csv"))
+```
+
+## 3. Filter()
+
+#### **Practice Activity 1**
+
+Use `filter()` to create a subset from `penguins` that only contains gentoo penguins with a bill depth greater than or equal to 15.5 millimeters.
+
+```{r}
+penguins %>% 
+  filter(Species == "Gentoo", bill_depth_mm >= 15.5)
+```
