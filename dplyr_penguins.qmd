@@ -11,7 +11,11 @@ library(here)
 ```
 
 ```{r}
-penguins <- read_csv(here("data/penguins_lter.csv"))
+#penguins <- read_csv(here("data/penguins_lter.csv"))
+```
+
+```{r}
+penguins <- palmerpenguins::penguins
 ```
 
 ## 3. Filter()
@@ -21,6 +25,52 @@ penguins <- read_csv(here("data/penguins_lter.csv"))
 Use `filter()` to create a subset from `penguins` that only contains gentoo penguins with a bill depth greater than or equal to 15.5 millimeters.
 
 ```{r}
+gentoo_penguins_long_bill <- penguins %>% 
+  filter(species == "Gentoo", bill_depth_mm >= 15.5)
+```
+
+```{r}
+ggplot(penguins, aes(x = bill_depth_mm, fill = species)) +
+  geom_histogram() +
+  geom_vline(xintercept = 15.5)
+```
+
+#### **Practice Activity 2**
+
+Use `filter()` to create a subset from `penguins` that contains observations for male penguins recorded at Dream and Biscoe Islands.
+
+```{r}
 penguins %>% 
-  filter(Species == "Gentoo", bill_depth_mm >= 15.5)
+  filter(sex == "male", island == "Dream" | island == "Bisoce")
+```
+
+#### **Practice Activity 3**
+
+Use `filter()` to create a subset from `penguins` that contains observations for female Adelie penguins with bill lengths less than 35 mm.
+
+```{r}
+penguins %>% 
+  filter(species == "Adelie", sex == "female", bill_length_mm < 35)
+```
+
+#### **Practice Activity 4**
+
+Create a subset from `penguins` containing observations for female chinstrap penguins on Dream and Torgersen Islands.
+
+```{r}
+penguins %>% 
+  filter(sex == "female", species == "Chinstrap", island == "Dream" | island == "Torgersen") 
+```
+
+#### **Practice Activity 5**
+
+Create a subset from `penguins` that contains penguins that are either gentoos **OR** have a body mass greater than 4500 g.
+
+```{r}
+large_gentoos <- penguins %>% 
+  filter(species == "Gentoo" | body_mass_g > 4500)
+```
+
+```{r}
+min(large_gentoos$body_mass_g, na.rm = TRUE)
 ```
