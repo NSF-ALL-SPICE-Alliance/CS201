@@ -34,11 +34,11 @@
 | 9/2-9/6     | Wednesday  | Reading Data into R: read_csv, api's, libraries |            |
 | 9/2-9/6     | Friday     | Penguin data tidyverse manipulation          |            |
 | 9/9-9/13    | Monday     | [Penguin data analysis & visualization](https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome)        |            |
-| 9/9-9/13    | Wednesday  | [Penguin data analysis & visualization](https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome)        | Push answers to *Challenge* code chunks in penguins.qmd           |
+| 9/9-9/13    | Wednesday  | [Penguin data analysis & visualization](https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome)        |           |
 | 9/9-9/13    | Friday     | mtcars data analysis & visualization         |            |
 | 9/16-9/20   | Monday     | mtcars data analysis & visualization         |            |
-| 9/16-9/20   | Wednesday  | SDG data analysis & visualization            |            |
-| 9/16-9/20   | Friday     | SDG data analysis & visualization            |     Push answers to SDG Analysis       |
+| 9/16-9/20   | Wednesday  | SDG data analysis & visualization            |   Push answers to *Challenge* code chunks in penguins.qmd and *dplyr_penguins.Rmd*         |
+| 9/16-9/20   | Friday     | SDG data analysis & visualization            |         |
 | 9/23-9/27   | Monday     | [Personal Websites in R ](https://ucsb-meds.github.io/creating-quarto-websites/)                      |            |
 | 9/23-9/27   | Wednesday  | [Personal Websites in R  ](https://ucsb-meds.github.io/creating-quarto-websites/)                     |            |
 | 9/23-9/27   | Friday     | [Personal Websites in R  ](https://ucsb-meds.github.io/creating-quarto-websites/)                     |     Submit link to Personal Website       |
