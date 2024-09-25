@@ -1,0 +1,98 @@
+---
+title: "Cars Analysis"
+format: html
+editor: visual
+---
+
+#### Load in Libraries
+
+```{r}
+library(tidyverse)
+library(plotly)
+
+```
+
+#### Read in Dataset
+
+```{r}
+mtcars <- datasets::mtcars
+```
+
+```{r}
+?mtcars
+```
+
+#### Lets examine the relationship between weight and miles per gallon
+
+```{r}
+cars_wt_mpg <- ggplot(data = mtcars, aes(x =mpg, y = wt)) +
+  geom_point()
+cars_wt_mpg
+```
+
+```{r}
+ggplotly(cars_wt_mpg)
+```
+
+```{r}
+mtcars <- mtcars %>%
+  tibble::rownames_to_column("model")
+```
+
+```{r}
+cars_wt_mpg <- ggplot(data = mtcars, aes(x =mpg, y = wt, label = model, color = hp)) +
+  geom_point()
+cars_wt_mpg
+```
+
+```{r}
+ggplotly(cars_wt_mpg)
+```
+
+#### Read in Dataset
+
+```{r}
+mtcars <- datasets::mtcars
+```
+
+```{r}
+?mtcars
+```
+
+```{r}
+mtcars <- mtcars %>%
+  tibble::rownames_to_column("model")
+```
+
+#### Let's examine the relationship between weight and miles per gallon
+
+```{r}
+cars_wt_mpg <- ggplot(data = mtcars, aes(x =mpg, y = wt, label = model, color = hp)) +
+  geom_point() + 
+  geom_smooth() 
+cars_wt_mpg
+```
+
+```{r}
+ggplotly(cars_wt_mpg)
+```
+
+```{r}
+mtcars_split <- mtcars %>%
+  separate(model, into = c("make", "model"), sep = " ", extra = "merge")
+```
+
+#### What is the average mpg for each car manufacturer?
+
+#### Please plot the results.
+
+```{r}
+mean_make_mpg <- mtcars_split %>%
+  group_by(make) %>%
+  summarise(mean_mpg = mean(mpg))
+```
+
+```{r}
+ggplot(data = mean_make_mpg, aes(y = reorder(make, mean_mpg), x = mean_mpg)) + 
+  geom_bar(stat = "identity")
+```

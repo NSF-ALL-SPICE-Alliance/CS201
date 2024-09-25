@@ -426,7 +426,7 @@ Let's say the only way to get the penguins data was via the uri. At the top of t
 -   We can use the function full_join()
 
 ```{r}
-gentoo_adelie_penguins_data_joined <- full_join(gentoo_penguins_data_from_uri, adelie_penguins_data_from_url)
+gentoo_adelie_penguins_data_joined <- full_join(gentoo_penguins_data_from_url, adelie_penguins_data_from_url)
 ```
 
 #### Final Exercises {style="color: #B8860B;"}
@@ -436,7 +436,7 @@ gentoo_adelie_penguins_data_joined <- full_join(gentoo_penguins_data_from_uri, a
     1.  Hint: geom_boxplot(), ggplotly()
 
         ```{r}
-
+        geom_boxplot()
         ```
 
         ```{r}
