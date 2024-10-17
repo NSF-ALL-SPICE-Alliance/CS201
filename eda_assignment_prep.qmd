@@ -1,7 +1,7 @@
 ---
 title: "EDA Assignment Prep"
-author: "Amber Camp"
-format: html
+author: "Amber Camp (edited by Christian Raquepo)"
+format: html 
 editor: visual
 ---
 
@@ -18,42 +18,58 @@ library(janitor)
 ### Data
 
 ```{r}
+pokedata <- read_csv(here("data/Pokemon.csv"))
+
+pokedata <- pokedata %>% 
+  clean_names()
+```
+
+```{r}
 
 ```
 
 ### Describe the data:
 
-Data author:
+Data author: **ALBERTO BARRADAS**
 
-Description:
+[*https://www.kaggle.com/datasets/abcsds/pokemon?resource=download*](https://www.kaggle.com/datasets/abcsds/pokemon?resource=download)
 
-How many observations (rows) are there?
+Description: ***This is pokemon data for 721 pokemon and their stats.***
 
-How many variables (columns) are there?
+How many observations (rows) are there? ***800***
+
+How many variables (columns) are there? ***13***
 
 ### skimr: Quick overview
 
 ```{r}
-
+skim_data <- skimr::skim(pokedata)
 ```
 
 ### Summary: Quick overview
 
 ```{r}
-
+summary(pokedata)
 ```
 
 ### Categorical vs. Continuous
 
 ```{r}
+pokedata$number <- as.factor(pokedata$number)
+class(pokedata$number)
+summary(pokedata$number)
 
+summary(pokedata$type_1)
+pokedata$type_1 <- as.factor(pokedata$type_1)
+class(pokedata$type_1)
+summary(pokedata$type_1)
 ```
 
-How many categorical variables are there?
+How many categorical variables are there? ***5/6***
 
-How many continuous variables are there?
+How many continuous variables are there? ***7***
 
-What are some variables of interest to you?
+What are some variables of interest to you? ***s***
 
 ------------------------------------------------------------------------
 
