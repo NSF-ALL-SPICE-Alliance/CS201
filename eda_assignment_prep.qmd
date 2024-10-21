@@ -73,7 +73,7 @@ What are some variables of interest to you? ***s***
 
 ------------------------------------------------------------------------
 
-## EDA Assignment Prep: \[Insert Data Name Here\]
+## EDA Assignment Prep: **Students Exam Scores**
 
 ### Libraries
 
@@ -86,33 +86,47 @@ library(janitor)
 ### Data
 
 ```{r}
+studentdata <- read.csv(here("data/Scores.csv"))
 
+studentdata <- studentdata %>% 
+  clean_names()
 ```
 
 ### Describe the data:
 
-Data author:
+Data author: ***Mr. Royce Kimmons***
 
-Description:
+Description: ***This is Student Exam Scores data for 1000 students.***
 
-How many observations (rows) are there?
+How many observations (rows) are there? 1000.
 
-How many variables (columns) are there?
+How many variables (columns) are there? 16.
 
 ### Summary: Quick overview
 
 ```{r}
-
+skim_data <- skimr::skim(studentdata)
 ```
 
 ### Categorical vs. Continuous
 
 ```{r}
-
+summary(pokedata)
 ```
 
-How many categorical variables are there?
+```{r}
+studentdata$x <- as.factor(studentdata$x)
+class(studentdata$x)
+summary(studentdata$x)
 
-How many continuous variables are there?
+summary(studentdata$ethnic_group)
+studentdata$ethnic_group <- as.factor(studentdata$ethnic_group)
+class(studentdata$ethnic_group)
+summary(studentdata$ethnic_group)
+```
 
-What are some variables of interest to you?
+How many categorical variables are there? 9
+
+How many continuous variables are there? 6
+
+What are some variables of interest to you? Lunch type, study hours, test prep
