@@ -98,9 +98,9 @@ Data author: ***Mr. Royce Kimmons***
 
 Description: ***This is Student Exam Scores data for 1000 students.***
 
-How many observations (rows) are there? 1000.
+How many observations (rows) are there? 30,641.
 
-How many variables (columns) are there? 16.
+How many variables (columns) are there? 15.
 
 ### Summary: Quick overview
 
