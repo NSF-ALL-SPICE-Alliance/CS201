@@ -1,6 +1,6 @@
 ---
 title: "Exploratory Data Analysis, part 1"
-author: "Amber Camp"
+author: "Amber Camp" -- > CHRISTIAN RAQUEPO
 date: "`r Sys.Date()`"
 format: html
 editor: visual
@@ -158,9 +158,9 @@ ggplot(pokedata, aes(y = sp_def)) +
 
 -   How do you read a boxplot, and what are the different landmarks?
 
-## Try it on your own. 
+## Try it on your own.
 
-#### Data. 
+#### Data.
 
 ```{r}
 studentdata <- read_csv(here("data/Scores.csv"))
@@ -169,7 +169,7 @@ studentdata <- studentdata %>%
   clean_names()
 ```
 
-#####  
+##### 
 
 ```{r}
 ggplot(studentdata, aes(x = math_score)) +
